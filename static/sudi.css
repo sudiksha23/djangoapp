@@ -1,0 +1,124 @@
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  opacity: 0.3;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center
+}
+
+.w3-button{
+  height: 30px;
+  width: auto;
+}
+
+ .image:hover {
+  opacity: 1;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  font-size: 16px;
+  padding: 6px 12px;
+}
+
+.navbar, .navbar-inverse {
+	border-radius: 0;
+  border: 0;
+}
+
+.container-fluid{
+	background-color: #000000
+}
+
+.navbar-brand{
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-right: 10px;
+}
+
+.navbar-header{
+	padding-left: 15px;
+	padding-top: 10px;
+	height:60px;
+	width: 600px;
+}
+
+.nav, .navbar-nav, .navbar-right{
+  padding-top: 5px;
+}
+
+.l{
+	padding-bottom: 8px;
+	padding-top: 8px;
+
+}
+
+label{
+	color: #ffffff;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   text-align: center;
+}
+
+.container3{
+  height: 575px;
+  background-color: #000000;
+  opacity: 0.7;
+  width: 600px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  position: absolute;
+ padding-top: 30px;
+ padding-left: 100px;
+}
+
+.container4{
+	border-radius: 5px;
+  background-color: #000000;
+  opacity: 0.7;
+  width: 600px;
+  height: 575px;
+  box-sizing: border-box;
+  left:820px;
+ position: absolute;
+ padding-top: 30px;
+ padding-left: 80px;
+}
+
+.container5{
+
+  border-radius: 5px;
+  left:350px;
+  top:50px;
+  width: 950px;
+  height: 300px;
+  box-sizing: border-box;
+  position: absolute;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 40px;
+}

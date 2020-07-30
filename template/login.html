@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% block title %}login
+{% endblock title %}
+
+{% block style %}
+body {padding-top:70px; padding-left:80px; height:750px;color: #fff; background-image:
+url("https://i.postimg.cc/BnDc092L/adventure-backlit-dawn-dusk-207896.jpg"); background-repeat: no-repeat;
+background-size: 100%; background-position: center;}
+
+.button{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius:5px;
+}
+
+
+.gallery{
+  margin: 1px; 
+  border: 1px solid #ccc; 
+  background-color:black;
+  padding-top:30px;
+  padding-left:20px;    
+  border-radius: 8px;
+  width:1350px;
+  height:625px;
+  overflow-y: scroll;
+  overflow-x: hidden;    
+}
+
+
+{% endblock style %}
+
+{% block body %}
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+  <div class="container-fluid" >
+    <a class="navbar-brand" href="#">
+      <img src="https://i.postimg.cc/YqtBSLfG/psyche-revived-by-cupid-s-kiss-clip-art-cupid.jpg" width="40" height="40"
+        alt="" loading="lazy">
+    </a>
+    <div class="navbar-header"> 
+      <a class="navbar-brand" href="index">Kindling</a>
+    </div>
+    <div>
+      
+        <ul class="nav navbar-nav">
+          <li><a href="login"><span class="glyphicon glyphicon-user"></span>  Our Users</a></li>
+          <li><a href="searchin"><span class="glyphicon glyphicon-search"></span>  Search</a></li>
+        </ul>
+    <div class="navbar-header"> 
+      <a href="index" class="btn btn-info btn-lg" style="float: right; background-color: black; border-color: black;"><span class="glyphicon glyphicon-log-out"></span> Log out
+      </a>  
+    </div>
+    </div>
+  </div>
+</nav>
+
+    
+    <div>
+      <form action="ourusers" method="post">
+        {% csrf_token %}
+      <button type="submit" class="button button5">Display</button>
+
+      </form>
+    </div>
+
+
+      <div class="gallery">
+      
+            {% for i in display %}
+                
+            <div class="container">
+                <img src="{{ i.dp.url }}" alt="Avatar" class="image" style="height:40%; width:17%; margin:10px ">
+                       <div class="middle" style="left: 25%; text-align: right;">
+                             <div class="text"><p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Username </button></p>
+                                                <p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Full Name </button></p>
+                                                <p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">DOB </button></p>
+                            
+                            </div>
+                            </div>
+
+                       
+
+                       <div class="middle" style="left:35%; text-align: left;">
+                            <div class="text"> <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.uname}}</button></p>
+                                              <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.fname}} {{i.lname}}</button></p>
+                                              <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.dob}}</button></p>
+                      </div>
+                      </div>
+
+                      <div class="middle" style="left: 47%; text-align: right;">
+                        <div class="text"><p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">City </button></p>
+                                           <p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Gender </button></p>
+                                           <p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Interested In </button></p>
+                       
+                       </div>
+                       </div>
+
+                  
+
+                  <div class="middle" style="left:55%; text-align: left;">
+                       <div class="text"> <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.city}}</button></p>
+                                         <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.gender}}</button></p>
+                                         <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.interested_in}}</button></p>
+                 </div>
+                 </div>
+
+
+                 <div class="middle" style="left: 66%; text-align: right;">
+                  <div class="text"><p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Religion </button></p>
+                                    <p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Marital Status </button></p>
+                                     <p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Education </button></p>
+                                     <p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Occupation </button></p>
+                 
+                 </div>
+                 </div>
+
+            
+
+                <div class="middle" style="left:76%; text-align: left;">
+                     <div class="text"> <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.religion}}</button></p>
+                                       <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.marital_status}}</button></p>
+                                       <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.education_status}}</button></p>
+                                       <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.occupation}}</button></p>
+               </div>
+           </div>
+
+           <div class="middle" style="left: 85%; text-align: right;">
+            <div class="text"><p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Bio </button></p>
+                              
+           </div>
+           </div>
+
+      
+
+          <div class="middle" style="left:94%; text-align: left;">
+               <div class="text"> <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black; height: 150px; width:140px; overflow-y: scroll; overflow-x:scroll;">{{i.subject}}</button></p>
+        </div>
+          </div>
+
+
+            </div>
+                     
+            {% endfor %}
+           
+      </div>
+
+{% endblock body %}
