@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}update
+{% endblock title %}
+
+{% block style %}
+
+{% endblock style %}
+
+{% block body %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+  <div class="container-fluid" >
+    <a class="navbar-brand" href="#">
+      <img src="https://i.postimg.cc/YqtBSLfG/psyche-revived-by-cupid-s-kiss-clip-art-cupid.jpg" width="40" height="40"
+        alt="" loading="lazy">
+    </a>
+    <div class="navbar-header"> 
+      <a class="navbar-brand" href="index">Kindling</a>
+    </div>
+    </div>
+</nav>
+
+
+{% block content%}
+<form action="" method="POST" style="margin-top: 100px;">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" class="btn btn-success" style="color:green;height:40px; width:80px">Submit</button>
+</form>
+{% endblock %}
+
+{% endblock body %}

@@ -10,22 +10,25 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin', admin.site.urls),
+    path("login",views.login, name='login'),
     path("", views.index, name='home'),
     path("index",views.index, name='index'),
-    path("login",views.login, name='login'),
     path("entrylogin", views.entrylogin, name="entry"),
     path("searchtable1",views.searchtable1, name="entry"),
     path("searchtable2",views.searchtable2, name="entry"),
     path("searchtable3",views.searchtable3, name="entry"),
     path("searchtable4",views.searchtable4, name="entry"),
+    #path("filters",views.filters, name="filters"),
     path("ourusers",views.ourusers, name="entry"),
     path("entrysignup", views.entrysignup, name="entry"),
-    path("searchin",views.searchin,name="searchin")
+    path("searchin",views.searchin,name="searchin"),
+    #path("profile",views.profile,name="profile"),
+    path("profile/<str:pk_test>",views.profile, name="profile"),
+    path("update/<str:pk>",views.update, name="update"),
+    path("delete/<str:pk2>",views.delete, name="delete"),
+    
     #path("d",views.d, name='d')
     
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
 
-
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
-#urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -4,12 +4,17 @@ from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
 from kindling.forms import EntrySignupForm
 from django.core.files import File
+from .filters import EntrySignupFilter
+from django.contrib.auth.forms import UserCreationForm
+
 
 def index(request):
     return render(request, 'index.html')
 
 def login(request):
-    return render(request, 'login.html')
+    count = EntrySignup.objects.all().count()
+    context = {'count':count}
+    return render(request, 'login.html', context)
  
 def redirect_view(request):
     response = redirect('/login/')
@@ -42,7 +47,32 @@ def entrylogin(request):
 
 def ourusers(request):
     data=EntrySignup.objects.all()
-    return render(request, 'login.html', {'display' : data})
+    count=data.count()
+    context = {'display':data, 'count':count}
+    return render(request, 'login.html', context)
+
+def profile(request, pk_test):
+    user=EntrySignup.objects.get(uname=pk_test)
+    return render(request, 'profile.html', {'userprofile' : user})
+
+def update(request, pk):
+    user=EntrySignup.objects.get(uname=pk)
+    form=EntrySignupForm(instance=user)
+    if request.method == 'POST':
+        form = EntrySignupForm(request.POST, instance=user) 
+        if form.is_valid(): 
+            form.save()
+            return redirect('/')
+    context = {'form':form}
+    return render(request, 'update.html', context)
+
+def delete(request, pk2):
+    user=EntrySignup.objects.get(uname=pk2)
+    if request.method == 'POST':
+        user.delete()
+        return redirect('/')
+    context = {'user': user}
+    return render(request, 'delete.html', context)
 
 def entrysignup(request):
     if request.method == 'POST' or request.FILES == 'file':
@@ -60,14 +90,16 @@ def entrysignup(request):
 def searchin(request):
     return render(request, 'searchin.html')
 
+
 def searchtable1(request):
-    
     if request.method == 'POST':
         u = request.POST["u"]
     s=EntrySignup.objects.filter(fname=u)
-    return render(request, 'searchin.html', {'set' : s})
+    context = {'set':s}
+    return render(request, 'searchin.html', context)
 
 def searchtable2(request):
+    
     if request.method == 'POST':
         c = request.POST["c"]
     s=EntrySignup.objects.filter(city=c)

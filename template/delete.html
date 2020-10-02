@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}delete
+{% endblock title %}
+
+{% block style %}
+
+{% endblock style %}
+
+{% block body %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+  <div class="container-fluid" >
+    <a class="navbar-brand" href="#">
+      <img src="https://i.postimg.cc/YqtBSLfG/psyche-revived-by-cupid-s-kiss-clip-art-cupid.jpg" width="40" height="40"
+        alt="" loading="lazy">
+    </a>
+    <div class="navbar-header"> 
+      <a class="navbar-brand" href="index">Kindling</a>
+    </div>
+   </div>
+</nav>
+
+
+{% block content%}
+
+
+    <p style="margin-top: 100px;">Are you sure you want to delete {{user}}?</p>
+<form action="{% url 'delete' user.uname %}" method="POST">
+{% csrf_token %}
+    <a href="{% url 'index' %}">cancle</a>
+    <input type="submit" name="confirm">
+</form>>
+
+{% endblock %}
+
+{% endblock body %}

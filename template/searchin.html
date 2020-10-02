@@ -66,8 +66,9 @@ url("https://i.postimg.cc/GmCfw60Z/a-lot-of-tall-trees-1046820-1.jpg"); backgrou
 </nav>
 
 <div id="section1" class="container-fluid">
+  
 
-  <div style="height: 100px; background-color: black; opacity: 0.8; width: 400px; height: 80px; padding-top: 4px; padding-left: 18px; 
+  <div style="height: 100px; background-color: black; opacity: 0.8; width: 400px; height: 80px; padding-top: 10px; padding-left: 18px; 
   padding-bottom: 8px; border-radius: 5px;">
   <form action="searchtable1" method="post">
     {% csrf_token %}
@@ -79,6 +80,7 @@ url("https://i.postimg.cc/GmCfw60Z/a-lot-of-tall-trees-1046820-1.jpg"); backgrou
 
   </form>
 </div>
+
   <div class="gallery" style="height: 200px;">      
             {% for i in set %}
               

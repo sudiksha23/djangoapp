@@ -61,7 +61,7 @@ background-size: 100%; background-position: center;}
   </div>
 </nav>
 
-    
+    <p> total number of usres registered = {{count}}</p>
     <div>
       <form action="ourusers" method="post">
         {% csrf_token %}
@@ -80,8 +80,7 @@ background-size: 100%; background-position: center;}
                        <div class="middle" style="left: 25%; text-align: right;">
                              <div class="text"><p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Username </button></p>
                                                 <p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Full Name </button></p>
-                                                <p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">DOB </button></p>
-                            
+                                                
                             </div>
                             </div>
 
@@ -89,61 +88,29 @@ background-size: 100%; background-position: center;}
 
                        <div class="middle" style="left:35%; text-align: left;">
                             <div class="text"> <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.uname}}</button></p>
-                                              <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.fname}} {{i.lname}}</button></p>
-                                              <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.dob}}</button></p>
+                                              <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">
+                                               {{i.fname}}  {{i.lname}}</button></p>
+                                            </div>
                       </div>
-                      </div>
 
-                      <div class="middle" style="left: 47%; text-align: right;">
-                        <div class="text"><p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">City </button></p>
-                                           <p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Gender </button></p>
-                                           <p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Interested In </button></p>
-                       
-                       </div>
-                       </div>
+                     
 
-                  
-
-                  <div class="middle" style="left:55%; text-align: left;">
-                       <div class="text"> <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.city}}</button></p>
-                                         <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.gender}}</button></p>
-                                         <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.interested_in}}</button></p>
-                 </div>
-                 </div>
-
-
-                 <div class="middle" style="left: 66%; text-align: right;">
-                  <div class="text"><p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Religion </button></p>
-                                    <p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Marital Status </button></p>
-                                     <p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Education </button></p>
-                                     <p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Occupation </button></p>
-                 
-                 </div>
-                 </div>
-
+               
+           <div class="middle" style="left: 55%; text-align: right;">
+            <button type="button" class="btn btn-primary"><a href="{% url 'profile' i.uname %}" style="color: white;">View</a></button>
             
-
-                <div class="middle" style="left:76%; text-align: left;">
-                     <div class="text"> <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.religion}}</button></p>
-                                       <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.marital_status}}</button></p>
-                                       <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.education_status}}</button></p>
-                                       <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black;">{{i.occupation}}</button></p>
-               </div>
-           </div>
-
-           <div class="middle" style="left: 85%; text-align: right;">
-            <div class="text"><p><button class="w3-button w3-small" style="background-color: rgb(36, 87, 133);">Bio </button></p>
-                              
-           </div>
-           </div>
-
-      
-
-          <div class="middle" style="left:94%; text-align: left;">
-               <div class="text"> <p><button class="w3-button w3-white w3-border" style="background-color: rgb(169, 197, 221); color: black; height: 150px; width:140px; overflow-y: scroll; overflow-x:scroll;">{{i.subject}}</button></p>
-        </div>
           </div>
 
+          <div class="middle" style="left: 65%; text-align: right;">
+            <button type="button" class="btn btn-success"><a href="{% url 'update' i.uname %}" style="color: white;">Update</a></button>
+            
+          </div>
+
+          <div class="middle" style="left: 75%; text-align: right;">
+            <button type="button" class="btn btn-danger"><a href="{% url 'delete' i.uname %}" style="color: white;">Delete</a></button>
+            
+          </div>
+        
 
             </div>
                      
