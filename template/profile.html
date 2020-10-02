@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %}profile
+{% endblock title %}
+
+{% block style %}
+
+.buttonset1{
+    height: 350px;
+    width: 350px;
+    background-color:black;
+    margin-left: 100px;
+    margin-top: 10px;
+    padding: 10px;
+    position: absolute;
+    
+  }
+
+.buttonset2{
+    height: 350px;
+    width: 350px;
+    background-color: black;
+    margin-left: 700px;
+    
+    padding: 10px;
+    position: absolute;
+}
+
+{% endblock style %}
+
+{% block body %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+  <div class="container-fluid" >
+    <a class="navbar-brand" href="#">
+      <img src="https://i.postimg.cc/YqtBSLfG/psyche-revived-by-cupid-s-kiss-clip-art-cupid.jpg" width="40" height="40"
+        alt="" loading="lazy">
+    </a>
+    <div class="navbar-header"> 
+      <a class="navbar-brand" href="index">Kindling</a>
+    </div>
+    </div>
+</nav>
+
+
+{% block content %}
+
+
+<img src="{{ userprofile.dp.url }}" alt="Avatar" class="image" style="height:40%; width:17%; margin-top: 70px; margin-left: 650px; opacity: 1; ">
+<br>
+<div class="buttonset1">
+<button type="button" class="btn btn-primary" style="margin: 10px;">Name</button>   <button type="button" class="btn btn-secondary">{{userprofile.fname}} {{userprofile.lname}}</button>
+<br>
+<button type="button" class="btn btn-primary" style="margin: 10px;">Date of Birth</button>  <button type="button" class="btn btn-secondary">{{userprofile.dob}}</button>
+<br>
+<button type="button" class="btn btn-primary" style="margin: 10px;">Address</button>  <button type="button" class="btn btn-secondary">{{userprofile.city}} {{userprofile.state}} {{userprofile.country}} {{userprofile.zipp}}<br>
+</button>
+<br>
+<button type="button" class="btn btn-primary" style="margin: 10px;">Occupation</button>  <button type="button" class="btn btn-secondary">{{userprofile.occupation}}<br>
+</button>
+
+<br>
+<button type="button" class="btn btn-primary" style="margin: 10px;">Gender</button>  <button type="button" class="btn btn-secondary">{{userprofile.gender}}<br>
+</button>
+
+<br>
+<button type="button" class="btn btn-primary" style="margin: 10px;">Interested-In</button>  <button type="button" class="btn btn-secondary">{{userprofile.interested_in}}<br>
+</button>
+</div>
+<br>
+<div class="buttonset2">
+<button type="button" class="btn btn-primary" style="margin: 10px;">Relationship Status</button>  <button type="button" class="btn btn-secondary">{{userprofile.marital_status}}<br>
+</button>
+
+<br>
+<button type="button" class="btn btn-primary" style="margin: 10px;">Religion</button>  <button type="button" class="btn btn-secondary">{{userprofile.religion}}<br>
+</button>
+
+<br>
+<button type="button" class="btn btn-primary" style="margin: 10px;">Education</button>  <button type="button" class="btn btn-secondary">{{userprofile.education_status}}<br>
+</button>
+
+<br>
+<button type="button" class="btn btn-primary" style="margin: 10px;">About</button>  <button type="button" class="btn btn-secondary">{{userprofile.subject}}<br>
+</button>
+</div>
+{% endblock content %}
+
+{% endblock body %}
